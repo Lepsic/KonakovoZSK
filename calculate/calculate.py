@@ -26,7 +26,9 @@ class Calculate:
         в todo написал про args kwargs"""
         #  Пока time resist я так и не понял что за сопротивление
         for resist_index in range(len(time_resist_values)):
-            time_resist_values[resist_index] = round((time_resist_values[resist_index] * 1000) / 160, 1)
+            time_resist_values[resist_index] = round((time_resist_values[resist_index] *
+                                                      self.koef_for_calculate_destruction) /
+                                                     self.koef_for_calculate_destruction_2, 1)
         middle_value = round(sum(time_resist_values) / len(time_resist_values), 1)
         string_response = self.check_norm(middle_value=middle_value)
 
