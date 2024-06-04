@@ -1,4 +1,5 @@
 from datetime import datetime
+import pandas as pd
 
 f = (input('Введите марку стали: '))
 #f = 3,9;
