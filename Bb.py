@@ -38,13 +38,14 @@ permanent_recording5 = 'Угол загиба 120 градусов'
 permanent_recording6 = 'Не годен'
 if steel_grade == 'Ст3':
     if arithmetic_mean >= 380 and arithmetic_mean <= 490:
-        test_result = permanent_recording1,'\n', permanent_recording3 ,'\n',permanent_recording4
+        test_result = '\n'.join([permanent_recording1, permanent_recording3 ,permanent_recording4])
+        #test_result = permanent_recording1,'\n', permanent_recording3 ,'\n',permanent_recording4
     else:
         test_result = permanent_recording6
 
 if steel_grade == '09Г2С':
     if arithmetic_mean >= 490 :
-        test_result = ('Вр. сопр. норма -  более 490''\n''Годен''\n''Угол загиба 120 градусов')
+        test_result = 'Вр. сопр. норма -  более 490''\n''Годен''\n''Угол загиба 120 градусов'
     else:
         test_result = permanent_recording6
 
