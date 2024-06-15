@@ -37,3 +37,8 @@
 команду pip install -r requirments.txt 
 Пиши более масштабируемо. Когда собираешься хранить данные думай как ты с ними будешь 
 работать.
+
+data = {'Резервный протокол': [current_date, cell_value_A3, cell_value_A4, effort_destruction1, effort_destruction2,
+                               effort_destruction3, arithmetic_mean, test_result, ]} 
+Переписать в другой формат:
+data = {"Date": current_date, "test_1": cell_value_A3...}
