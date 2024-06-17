@@ -57,7 +57,7 @@ print ( "Bременное сопротивление - разрушение = "
 print ( "Bременное сопротивление - разрушение = ", effort_destruction2)
 print ( "Bременное сопротивление - разрушение = ", effort_destruction3)
 print( "Среднее значение Вр.сопр. = ",arithmetic_mean)
-print( test_result )
+print(test_result)
 
 #добавляет данные в файл  results1
 final_file = pd.read_excel('results1.xlsx', sheet_name='Лист1')
