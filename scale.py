@@ -1,5 +1,6 @@
 import pandas as pd
 from datetime import datetime
+from function_transit_data import transition_to_destruction
 
 # Last_name = input('Введите фамилию:_')
 # steel_grade = input('Введите марку стали:_')
@@ -60,7 +61,7 @@ temporary_resistance = [temporary_resistance1, temporary_resistance2, temporary_
 effort_destruction = []
 
 for resistance in temporary_resistance:
-    result = round((resistance * 1000 / sectional_area), 1)
+    result = transition_to_destruction(resistance)
     effort_destruction.append(result)
 effort_destruction1, effort_destruction2, effort_destruction3 = effort_destruction
 arithmetic_mean = round((effort_destruction1 + effort_destruction2 + effort_destruction3) / 3, 1)
