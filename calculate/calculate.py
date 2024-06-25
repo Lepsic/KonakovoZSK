@@ -5,8 +5,9 @@ class Calculate:
     """Вот класс который будет хранить в себе логику вычислений.
     Частично перенесу то, что у тебя там есть, но концепция такая, что именно эта сущность отвечает
     за все вычисления"""
+    test_attr = "test"
     koef_for_calculate_destruction = 1000  # у тебя везде по коду это 1000 s1 = round((n1 * 1000) / 160, 1)
-    koef_for_calculate_destruction_2 = 160  # у тебя по коду это 160 но че это за коефициент не знаю s1 = round((n1 * 1000) / 160, 1)
+    square_section = 160  # у тебя по коду это 160 но че это за коефициент не знаю s1 = round((n1 * 1000) / 160, 1)
 
     metal_parameters = {
         3: {"left_value": 380, "right_value": 490},
@@ -15,10 +16,11 @@ class Calculate:
         # а так можно чтобы вызывались разные методы но мне впадлу
     }
 
-    def __init__(self, metal_type: int):
+    def __init__(self, metal_type: int, square_section: int):
         # В todo писал про аннотации metal_type: int - это оно
         #  pass - это затычка когда не знаешь как определить
         self.metal_type = metal_type
+        self.square_section = square_section
 
     def calculate_resist(self, time_resist_values) -> Dict:
         """Calculate time resist.
@@ -26,13 +28,15 @@ class Calculate:
         в todo написал про args kwargs"""
         #  Пока time resist я так и не понял что за сопротивление
         for resist_index in range(len(time_resist_values)):
-            time_resist_values[resist_index] = round((time_resist_values[resist_index] *
-                                                      self.koef_for_calculate_destruction) /
-                                                     self.koef_for_calculate_destruction_2, 1)
+            time_resist_values[resist_index] = round(
+                (time_resist_values[resist_index] *
+                 self.koef_for_calculate_destruction) /
+                self.square_section, 1
+            )
         middle_value = round(sum(time_resist_values) / len(time_resist_values), 1)
         string_response = self.check_norm(middle_value=middle_value)
 
-        return {"result": time_resist_values, "string_response": string_response}
+        return {"mean_value": middle_value, "string_response": string_response}
 
     def check_norm(self, middle_value: float) -> str:
         condition = self.metal_parameters.get(self.metal_type)
@@ -52,3 +56,10 @@ class Calculate:
         if kwargs.get("right_value") is None:
             return str_out_with_all_condition.format(kwargs.get("left_value"), kwargs.get("right_value"))
         return str_out_with_right_condition.format(kwargs.get("left_value"), kwargs.get("right_value"))
+
+
+if __name__ == "__main__":
+    test_array = [75, 75, 75]
+    calc = Calculate(metal_type=3, square_section=160)
+
+    print(calc.calculate_resist(test_array))
