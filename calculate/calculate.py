@@ -16,11 +16,10 @@ class Calculate:
         # а так можно чтобы вызывались разные методы но мне впадлу
     }
 
-    def __init__(self, metal_type: int, square_section: int):
+    def __init__(self, metal_type: int):
         # В todo писал про аннотации metal_type: int - это оно
         #  pass - это затычка когда не знаешь как определить
         self.metal_type = metal_type
-        self.square_section = square_section
 
     def calculate_resist(self, time_resist_values) -> Dict:
         """Calculate time resist.
